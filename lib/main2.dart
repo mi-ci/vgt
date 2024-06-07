@@ -81,156 +81,99 @@ class _SendMoneyState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF111111), // 어두운 배경 색상
-      body: SingleChildScrollView(
-        child: Center(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text(
+            '마녀의 냉장고',
+            style: TextStyle(color: Colors.black),
+          ),
+          // leading: BackButton(
+          //   color: Colors.black,
+          // ),
+        ),
+        body: SingleChildScrollView(
           child: Container(
-            width: MediaQuery.of(context).size.width > 600 ? 600 : null,
-            padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.5), // 그림자 색상
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 3), // 그림자 위치
-                ),
-              ],
-            ),
+            width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
-                    'assets/images/logo.jpg',
-                    fit: BoxFit.cover,
-                  ),
+                SizedBox(
+                  height: 50,
                 ),
-                SizedBox(height: 20),
-                Text(
-                  '마녀의 냉장고',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    color: Colors.red,
-                    fontSize: 55,
-                    fontStyle: FontStyle.italic,
-                    height: 1.5,
-                  ),
-                ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: open,
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(10), // 버튼의 모서리를 조절합니다.
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.disabled)) {
-                          return Colors.grey; // 버튼이 비활성화되었을 때
-                        }
-                        return Colors.red; // 버튼이 활성화되었을 때
-                      },
-                    ),
-                    foregroundColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                        return Colors.white; // 텍스트 색상
-                      },
-                    ),
-                  ),
+                FadeInDown(
+                  from: 100,
+                  duration: Duration(milliseconds: 1000),
                   child: Container(
-                    width: MediaQuery.of(context).size.width *
-                        0.7, // 화면 너비의 70% 정도의 크기로 버튼을 설정합니다.
-                    padding:
-                        EdgeInsets.symmetric(vertical: 15), // 버튼의 상하 여백을 추가합니다.
-                    child: Center(
-                      child: Text('촬영하기'),
+                    width: 230,
+                    height: 230,
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.pink.shade50,
+                      borderRadius: BorderRadius.circular(200),
                     ),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(510),
+                        child: Image.asset('assets/images/main.jpg')),
                   ),
                 ),
-                SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    print('광고보기 Button pressed ...');
-                  },
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(10), // 버튼의 모서리를 조절합니다.
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.disabled)) {
-                          return Colors.grey; // 버튼이 비활성화되었을 때
-                        }
-                        return Colors.red; // 버튼이 활성화되었을 때
-                      },
-                    ),
-                    foregroundColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                        return Colors.white; // 텍스트 색상
-                      },
-                    ),
-                  ),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width *
-                        0.7, // 화면 너비의 70% 정도의 크기로 버튼을 설정합니다.
-                    padding:
-                        EdgeInsets.symmetric(vertical: 15), // 버튼의 상하 여백을 추가합니다.
-                    child: Center(
-                      child: Text('광고보기'),
-                    ),
-                  ),
+                SizedBox(
+                  height: 50,
                 ),
-                SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    print('토큰보기 Button pressed ...');
-                  },
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(10), // 버튼의 모서리를 조절합니다.
+                FadeInUp(
+                    from: 60,
+                    delay: Duration(milliseconds: 500),
+                    duration: Duration(milliseconds: 1000),
+                    child: Text(
+                      "어떤 요리를 할지 고민이세요? 저희가 알려드릴게요",
+                      style: TextStyle(color: Colors.grey),
+                    )),
+                SizedBox(
+                  height: 10,
+                ),
+                FadeInUp(
+                    from: 30,
+                    delay: Duration(milliseconds: 800),
+                    duration: Duration(milliseconds: 1000),
+                    child: Text(
+                      '재료를 촬영해보세요',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    )),
+                SizedBox(
+                  height: 50,
+                ),
+                FadeInUp(
+                  duration: Duration(milliseconds: 1000),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: Material(
+                      elevation: 5,
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black,
+                      child: MaterialButton(
+                        onPressed: open,
+                        // child: MaterialButton(
+                        //   onPressed: () {
+                        //     Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) => ProductCard()));
+                        //   },
+                        minWidth: double.infinity,
+                        height: 50,
+                        child: Text(
+                          "촬영하기",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
                       ),
-                    ),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.disabled)) {
-                          return Colors.grey; // 버튼이 비활성화되었을 때
-                        }
-                        return Colors.red; // 버튼이 활성화되었을 때
-                      },
-                    ),
-                    foregroundColor: MaterialStateProperty.resolveWith<Color>(
-                      (Set<MaterialState> states) {
-                        return Colors.white; // 텍스트 색상
-                      },
-                    ),
-                  ),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width *
-                        0.7, // 화면 너비의 70% 정도의 크기로 버튼을 설정합니다.
-                    padding:
-                        EdgeInsets.symmetric(vertical: 15), // 버튼의 상하 여백을 추가합니다.
-                    child: Center(
-                      child: Text('토큰보기'),
                     ),
                   ),
                 ),
               ],
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
 
