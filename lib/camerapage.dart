@@ -14,6 +14,7 @@ class CameraPageState extends State<CameraPage> {
   Image? _displayedImage;
   late String food;
   var random = Random();
+  Key _imageKey = UniqueKey();
   var foodList = [
     'broccoli',
     'cabbage',
@@ -35,6 +36,7 @@ class CameraPageState extends State<CameraPage> {
   void updateImage(Image newImage) {
     setState(() {
       _displayedImage = newImage;
+      _imageKey = UniqueKey();
     });
   }
 
@@ -49,8 +51,13 @@ class CameraPageState extends State<CameraPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Center(
+              child: FadeInDown(
+            key: _imageKey,
+            from: 30,
+            delay: Duration(milliseconds: 500),
+            duration: Duration(milliseconds: 1000),
             child: _displayedImage ?? Text('Loading..'),
-          ),
+          )),
           SizedBox(
             height: 10,
           ),
