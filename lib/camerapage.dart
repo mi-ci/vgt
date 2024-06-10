@@ -19,7 +19,7 @@ class CameraPageState extends State<CameraPage> {
     'carrot',
     'cucumber',
     'pimento',
-    'potoato',
+    'potato',
     'pumpkin',
     'radish',
     'tomato'
@@ -50,20 +50,20 @@ class CameraPageState extends State<CameraPage> {
           Center(
             child: _displayedImage ?? Text('Loading..'),
           ),
-          if (_displayedImage != null)
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductCard(),
-                    ),
-                  );
-                },
-                child: Text("$food 추천요리"),
-              ),
+          // if (_displayedImage != null)
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductCard(food: food),
+                  ),
+                );
+              },
+              child: Text("$food 추천요리"),
             ),
+          ),
         ],
       ),
     );

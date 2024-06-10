@@ -79,6 +79,7 @@ class _SendMoneyState extends State<HomePage> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
+          centerTitle: true,
           title: Text(
             '마녀의 냉장고',
             style: TextStyle(color: Colors.black),

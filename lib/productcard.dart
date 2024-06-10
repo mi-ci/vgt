@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 
 class ProductCard extends StatefulWidget {
-  const ProductCard({Key? key}) : super(key: key);
+  final String food;
+
+  ProductCard({required this.food});
 
   @override
   _ProductCardState createState() => _ProductCardState();
@@ -11,29 +15,40 @@ class ProductCard extends StatefulWidget {
 class _ProductCardState extends State<ProductCard> {
   int _current = 0;
   dynamic _selectedIndex = {};
-
   CarouselController _carouselController = new CarouselController();
 
-  List<dynamic> _products = [
-    {
-      'title': '당근라페',
-      'image':
-          'https://recipe1.ezmember.co.kr/cache/recipe/2022/02/02/15825af4b03076018a6faa54dfda7a7e1_m.jpg',
-      'description': '브런치에 빠지면 섭섭해!'
-    },
-    {
-      'title': '당근수프',
-      'image':
-          'https://recipe1.ezmember.co.kr/cache/recipe/2017/05/25/b7b2ac2cad2f9aa6baf95731d00bc22a1_m.jpg',
-      'description': '부드러운 당근요리'
-    },
-    {
-      'title': '당근수프',
-      'image':
-          'https://recipe1.ezmember.co.kr/cache/recipe/2016/08/12/bbf561d84d35f13c45ac9f92c271820b1_m.jpg',
-      'description': '전기밥솥으로 쉽게!'
+  List<Map<String, dynamic>> _products = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadProducts();
+  }
+
+  Future<void> loadProducts() async {
+    final String response = await rootBundle.loadString('assets/recc.json');
+    final jsonData = json.decode(response);
+    final table = jsonData[widget.food];
+    print(widget.food);
+    List<Map<String, dynamic>> products = [];
+
+    for (var entry in table) {
+      String title = entry['title'];
+      String image = entry['image'];
+      String description = entry['description'];
+
+      products.add({
+        'title': title,
+        'image': image,
+        'description': description,
+      });
     }
-  ];
+
+    setState(() {
+      _products = products;
+      print(_products);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +63,7 @@ class _ProductCardState extends State<ProductCard> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Text(
-          '추천요리',
+          widget.food + ' 추천요리',
           style: TextStyle(
             color: Colors.black,
           ),
@@ -116,7 +131,7 @@ class _ProductCardState extends State<ProductCard> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              child: Image.network(movie['image'],
+                              child: Image.asset(movie['image'],
                                   fit: BoxFit.cover),
                             ),
                             SizedBox(
