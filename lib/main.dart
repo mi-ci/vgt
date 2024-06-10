@@ -149,13 +149,6 @@ class _SendMoneyState extends State<HomePage> {
                       color: Colors.black,
                       child: MaterialButton(
                         onPressed: open,
-                        // child: MaterialButton(
-                        //   onPressed: () {
-                        //     Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => ProductCard()));
-                        //   },
                         minWidth: double.infinity,
                         height: 50,
                         child: Text(

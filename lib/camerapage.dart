@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'productcard.dart';
+import 'package:animate_do/animate_do.dart';
 
 class CameraPage extends StatefulWidget {
   CameraPage({Key? key}) : super(key: key);
@@ -50,20 +51,64 @@ class CameraPageState extends State<CameraPage> {
           Center(
             child: _displayedImage ?? Text('Loading..'),
           ),
-          // if (_displayedImage != null)
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProductCard(food: food),
-                  ),
-                );
-              },
-              child: Text("$food 추천요리"),
-            ),
+          SizedBox(
+            height: 10,
           ),
+          if (_displayedImage != null)
+            Center(
+                child: FadeInUp(
+                    from: 30,
+                    delay: Duration(milliseconds: 500),
+                    duration: Duration(milliseconds: 1000),
+                    child: Text(
+                      '$food가 인식되었네요!',
+                      style: TextStyle(color: Colors.grey),
+                    ))),
+          SizedBox(
+            height: 10,
+          ),
+          if (_displayedImage != null)
+            Center(
+                child: FadeInUp(
+                    from: 30,
+                    delay: Duration(milliseconds: 800),
+                    duration: Duration(milliseconds: 1000),
+                    child: Text(
+                      '$food로 만들 수 있는 요리를 알아보러갈까요?',
+                      style: TextStyle(color: Colors.grey),
+                    ))),
+          SizedBox(
+            height: 10,
+          ),
+          if (_displayedImage != null)
+            FadeInUp(
+              delay: Duration(milliseconds: 1500),
+              duration: Duration(milliseconds: 1000),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: Material(
+                  elevation: 5,
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.black,
+                  child: MaterialButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductCard(food: food),
+                        ),
+                      );
+                    },
+                    minWidth: double.infinity,
+                    height: 50,
+                    child: Text(
+                      "추천 요리 보러가기",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );
