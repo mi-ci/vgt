@@ -9,11 +9,23 @@ import 'package:permission_handler/permission_handler.dart';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'camerapage.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-void main() => runApp(MaterialApp(
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-    ));
+    );
+  }
+}
 
 class HomePage extends StatefulWidget {
   @override
@@ -51,7 +63,7 @@ class _SendMoneyState extends State<HomePage> {
 
   Future<void> uploadImage(
       File imageFile, GlobalKey<CameraPageState> cameraPageKey) async {
-    String apiUrl = 'https://complete-stud-dashing.ngrok-free.app/predict';
+    String apiUrl = 'http://52.79.69.209:5000/predict';
     var request = http.MultipartRequest('POST', Uri.parse(apiUrl));
     request.files
         .add(await http.MultipartFile.fromPath('frame', imageFile.path));
@@ -70,8 +82,38 @@ class _SendMoneyState extends State<HomePage> {
     }
   }
 
-  // @override
-  // void initState() {}
+  late BannerAd _bannerAd;
+  bool _isBannerAdReady = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _bannerAd = BannerAd(
+      adUnitId: 'ca-app-pub-3940256099942544/9214589741',
+      request: AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (_) {
+          setState(() {
+            _isBannerAdReady = true;
+          });
+        },
+        onAdFailedToLoad: (ad, err) {
+          print('Failed to load a banner ad: ${err.message}');
+          _isBannerAdReady = false;
+          ad.dispose();
+        },
+      ),
+    );
+
+    _bannerAd.load();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,80 +130,91 @@ class _SendMoneyState extends State<HomePage> {
           //   color: Colors.black,
           // ),
         ),
-        body: SingleChildScrollView(
-          child: Container(
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 50,
-                ),
-                FadeInDown(
-                  from: 100,
-                  duration: Duration(milliseconds: 1000),
-                  child: Container(
-                    width: 230,
-                    height: 230,
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.pink.shade50,
-                      borderRadius: BorderRadius.circular(200),
-                    ),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(510),
-                        child: Image.asset('assets/images/main.jpg')),
+        body: Stack(children: [
+          SingleChildScrollView(
+            child: Container(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 50,
                   ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                FadeInUp(
-                    from: 60,
-                    delay: Duration(milliseconds: 500),
+                  FadeInDown(
+                    from: 100,
                     duration: Duration(milliseconds: 1000),
-                    child: Text(
-                      "어떤 요리를 할지 고민이세요? 저희가 알려드릴게요",
-                      style: TextStyle(color: Colors.grey),
-                    )),
-                SizedBox(
-                  height: 10,
-                ),
-                FadeInUp(
-                    from: 30,
-                    delay: Duration(milliseconds: 800),
+                    child: Container(
+                      width: 230,
+                      height: 230,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.pink.shade50,
+                        borderRadius: BorderRadius.circular(200),
+                      ),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(510),
+                          child: Image.asset('assets/images/main.jpg')),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  FadeInUp(
+                      from: 60,
+                      delay: Duration(milliseconds: 500),
+                      duration: Duration(milliseconds: 1000),
+                      child: Text(
+                        "어떤 요리를 할지 고민이세요? 저희가 알려드릴게요",
+                        style: TextStyle(color: Colors.grey),
+                      )),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  FadeInUp(
+                      from: 30,
+                      delay: Duration(milliseconds: 800),
+                      duration: Duration(milliseconds: 1000),
+                      child: Text(
+                        '재료를 촬영해보세요',
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                      )),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  FadeInUp(
                     duration: Duration(milliseconds: 1000),
-                    child: Text(
-                      '재료를 촬영해보세요',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    )),
-                SizedBox(
-                  height: 50,
-                ),
-                FadeInUp(
-                  duration: Duration(milliseconds: 1000),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                    child: Material(
-                      elevation: 5,
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black,
-                      child: MaterialButton(
-                        onPressed: open,
-                        minWidth: double.infinity,
-                        height: 50,
-                        child: Text(
-                          "촬영하기",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                      child: Material(
+                        elevation: 5,
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.black,
+                        child: MaterialButton(
+                          onPressed: open,
+                          minWidth: double.infinity,
+                          height: 50,
+                          child: Text(
+                            "촬영하기",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ));
+          if (_isBannerAdReady)
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: _bannerAd.size.width.toDouble(),
+                height: _bannerAd.size.height.toDouble(),
+                child: AdWidget(ad: _bannerAd),
+              ),
+            ),
+        ]));
   }
 }
