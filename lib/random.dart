@@ -119,7 +119,6 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
                         height: 200 // Adjust height of image as needed
                         ),
                   ),
-                  SizedBox(height: 100),
                   Padding(
                     padding: EdgeInsets.all(12),
                     child: Column(

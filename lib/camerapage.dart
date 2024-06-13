@@ -12,8 +12,8 @@ class CameraPage extends StatefulWidget {
 
 class CameraPageState extends State<CameraPage> {
   Image? _displayedImage;
-  List _displayedList = [''];
-  String food = '';
+  List? _displayedList;
+  late String food;
   Key _imageKey = UniqueKey();
 
   void updateImage(Image newImage) {
@@ -26,7 +26,12 @@ class CameraPageState extends State<CameraPage> {
   void updateList(List newList) {
     setState(() {
       _displayedList = newList;
-      food = _displayedList[1];
+      food = _displayedList
+          .toString()
+          .replaceAll('[', '')
+          .replaceAll(']', '')
+          .replaceAll(' ', '')
+          .toLowerCase();
     });
   }
 
@@ -51,7 +56,7 @@ class CameraPageState extends State<CameraPage> {
           SizedBox(
             height: 10,
           ),
-          if (_displayedList != null)
+          if (food != null)
             Center(
                 child: FadeInUp(
                     from: 30,
@@ -64,7 +69,7 @@ class CameraPageState extends State<CameraPage> {
           SizedBox(
             height: 10,
           ),
-          if (_displayedList != null)
+          if (food != null)
             Center(
                 child: FadeInUp(
                     from: 30,
@@ -77,7 +82,7 @@ class CameraPageState extends State<CameraPage> {
           SizedBox(
             height: 10,
           ),
-          if (_displayedImage != null)
+          if (food != null)
             FadeInUp(
               delay: Duration(milliseconds: 1500),
               duration: Duration(milliseconds: 1000),
