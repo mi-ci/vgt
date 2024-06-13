@@ -116,9 +116,10 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
                         BorderRadius.vertical(top: Radius.circular(20)),
                     child: Image.asset(recipe['image'],
                         fit: BoxFit.cover,
-                        height: 400 // Adjust height of image as needed
+                        height: 200 // Adjust height of image as needed
                         ),
                   ),
+                  SizedBox(height: 100),
                   Padding(
                     padding: EdgeInsets.all(12),
                     child: Column(

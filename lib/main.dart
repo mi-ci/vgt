@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'camerapage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'tokenPage.dart';
+import 'dart:convert';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +35,7 @@ class HomePage extends StatefulWidget {
 class _SendMoneyState extends State<HomePage> {
   final ImagePicker picker = ImagePicker();
   Image? _processedImage;
+  List<dynamic>? _classifications;
 
   Future<void> open() async {
     PermissionStatus status = await Permission.camera.request();
@@ -62,7 +64,7 @@ class _SendMoneyState extends State<HomePage> {
 
   Future<void> uploadImage(
       File imageFile, GlobalKey<CameraPageState> cameraPageKey) async {
-    String apiUrl = 'http://52.79.69.209:5000/predict';
+    String apiUrl = 'https://complete-stud-dashing.ngrok-free.app/predict';
     var request = http.MultipartRequest('POST', Uri.parse(apiUrl));
     request.files
         .add(await http.MultipartFile.fromPath('frame', imageFile.path));
@@ -70,11 +72,16 @@ class _SendMoneyState extends State<HomePage> {
     var response = await request.send();
 
     if (response.statusCode == 200) {
-      var responseData = await response.stream.toBytes();
-      _processedImage = Image.memory(responseData);
+      var responseData = await response.stream.bytesToString();
+      var jsonResponse = jsonDecode(responseData);
+      String base64Image = jsonResponse['image'];
+      List<dynamic> classifications = jsonResponse['classifications'];
+      _processedImage = Image.memory(base64Decode(base64Image));
+      _classifications = classifications;
 
       // Update the CameraPage with the processed image
       cameraPageKey.currentState?.updateImage(_processedImage!);
+      cameraPageKey.currentState?.updateList(_classifications!);
     } else {
       // Handle error response
       print('Error: ${response.statusCode}');

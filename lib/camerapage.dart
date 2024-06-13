@@ -12,31 +12,21 @@ class CameraPage extends StatefulWidget {
 
 class CameraPageState extends State<CameraPage> {
   Image? _displayedImage;
-  late String food;
-  var random = Random();
+  List _displayedList = [''];
+  String food = '';
   Key _imageKey = UniqueKey();
-  var foodList = [
-    'broccoli',
-    'cabbage',
-    'carrot',
-    'cucumber',
-    'pimento',
-    'potato',
-    'pumpkin',
-    'radish',
-    'tomato'
-  ];
-  @override
-  void initState() {
-    super.initState();
-    final random = Random();
-    food = foodList[random.nextInt(foodList.length)];
-  }
 
   void updateImage(Image newImage) {
     setState(() {
       _displayedImage = newImage;
       _imageKey = UniqueKey();
+    });
+  }
+
+  void updateList(List newList) {
+    setState(() {
+      _displayedList = newList;
+      food = _displayedList[1];
     });
   }
 
@@ -61,7 +51,7 @@ class CameraPageState extends State<CameraPage> {
           SizedBox(
             height: 10,
           ),
-          if (_displayedImage != null)
+          if (_displayedList != null)
             Center(
                 child: FadeInUp(
                     from: 30,
@@ -74,7 +64,7 @@ class CameraPageState extends State<CameraPage> {
           SizedBox(
             height: 10,
           ),
-          if (_displayedImage != null)
+          if (_displayedList != null)
             Center(
                 child: FadeInUp(
                     from: 30,
