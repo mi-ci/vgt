@@ -1,9 +1,6 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:bouncing_widget/bouncing_widget.dart';
-import 'package:pattern_formatter/pattern_formatter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'random.dart';
@@ -11,6 +8,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'camerapage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'tokenPage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -229,7 +227,34 @@ class _SendMoneyState extends State<HomePage> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 10.0), // 여기에 SizedBox를 추가하여 위젯 사이에 간격을 줍니다.
+                  FadeInUp(
+                    duration: Duration(milliseconds: 1000),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                      child: Material(
+                        elevation: 5,
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.black,
+                        child: MaterialButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TokenPage()),
+                            );
+                          },
+                          minWidth: double.infinity,
+                          height: 50,
+                          child: Text(
+                            "토큰 페이지",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
