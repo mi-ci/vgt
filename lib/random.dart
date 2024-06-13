@@ -32,17 +32,27 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
   void _pickRandomRecipe(String jsonData) {
     var decodedData = jsonDecode(jsonData) as Map;
     var allCategories = decodedData.keys.toList();
+    List<String> category1 = [];
     Random random = Random();
-    String randomCategory = allCategories[random.nextInt(allCategories.length)];
-    List<dynamic> categoryRawList = decodedData[randomCategory];
-    List<Map> categoryList = categoryRawList.cast<Map>();
-    if (categoryList.length >= 6) {
-      categoryList.shuffle();
-      _products = categoryList.sublist(0, 6);
-    } else {
-      _products = categoryList;
+    category1.add(allCategories[random.nextInt(9)]);
+    category1.add(allCategories[random.nextInt(9)]);
+    category1.add(allCategories[random.nextInt(9)]);
+    category1.add(allCategories[random.nextInt(9)]);
+    List<Map> selectedRecipes = [];
+
+    // 각 카테고리에서 하나의 레시피를 랜덤하게 선택
+    for (String category in category1) {
+      List<dynamic> categoryRecipes = decodedData[category];
+      if (categoryRecipes.isNotEmpty) {
+        selectedRecipes
+            .add(categoryRecipes[random.nextInt(categoryRecipes.length)]);
+      }
     }
-    setState(() {});
+
+    // 선택된 레시피들을 _products 리스트에 할당
+    setState(() {
+      _products = selectedRecipes;
+    });
   }
 
   @override
