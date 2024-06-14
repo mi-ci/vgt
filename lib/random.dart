@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:carousel_slider/carousel_slider.dart';
+import 'recipedetailPage.dart';
 
 class RecipeRandomizer extends StatefulWidget {
   @override
@@ -10,9 +12,7 @@ class RecipeRandomizer extends StatefulWidget {
 }
 
 class _RecipeRandomizerState extends State<RecipeRandomizer> {
-  List<Map> _products = [];
-  int _current = 0;
-  Map _selectedIndex = {};
+  List<Map<String, dynamic>> _products = [];
   late CarouselController _carouselController;
 
   @override
@@ -28,7 +28,7 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
   }
 
   void _pickRandomRecipe(String jsonData) {
-    var decodedData = jsonDecode(jsonData) as Map;
+    var decodedData = jsonDecode(jsonData) as Map<String, dynamic>;
     var allCategories = decodedData.keys.toList();
     List<String> category1 = [];
     Random random = Random();
@@ -36,7 +36,7 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
     category1.add(allCategories[random.nextInt(9)]);
     category1.add(allCategories[random.nextInt(9)]);
     category1.add(allCategories[random.nextInt(9)]);
-    List<Map> selectedRecipes = [];
+    List<Map<String, dynamic>> selectedRecipes = [];
 
     for (String category in category1) {
       List<dynamic> categoryRecipes = decodedData[category];
@@ -57,14 +57,6 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
     final double itemWidth = MediaQuery.of(context).size.width / 2;
 
     return Scaffold(
-      floatingActionButton: _selectedIndex.isNotEmpty
-          ? FloatingActionButton(
-              onPressed: () {
-                // Add navigation code here
-              },
-              child: Icon(Icons.arrow_forward_ios),
-            )
-          : null,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -87,63 +79,70 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
         ),
         itemCount: _products.length,
         itemBuilder: (BuildContext context, int index) {
-          Map recipe = _products[index];
+          Map<String, dynamic> recipe = _products[index];
+          String heroTag = 'recipe_image_${recipe['title']}'; // Hero 태그 생성
+
           return GestureDetector(
             onTap: () {
-              setState(() {
-                _selectedIndex = _selectedIndex == recipe ? {} : recipe;
-              });
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      RecipeDetailPage(recipe: recipe, heroTag: heroTag),
+                ),
+              );
             },
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    blurRadius: 10,
-                    offset: Offset(0, 5),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Flexible(
-                    child: ClipRRect(
+            child: Hero(
+              tag: heroTag, // 각 레시피에 대한 고유한 태그 사용
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      blurRadius: 10,
+                      offset: Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    ClipRRect(
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(20)),
                       child: Image.asset(
-                        recipe['image'],
+                        recipe['image'] ?? '',
                         fit: BoxFit.cover,
                         height: itemHeight * 0.6,
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          recipe['title'],
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: EdgeInsets.all(12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            recipe['title'] ?? '',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          recipe['description'],
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey.shade600,
+                          SizedBox(height: 8),
+                          Text(
+                            recipe['description'] ?? '',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey.shade600,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
