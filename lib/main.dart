@@ -186,7 +186,7 @@ class _SendMoneyState extends State<HomePage> {
                             fontSize: 24, fontWeight: FontWeight.bold),
                       )),
                   SizedBox(
-                    height: 50,
+                    height: 45,
                   ),
                   FadeInUp(
                     duration: Duration(milliseconds: 1000),
