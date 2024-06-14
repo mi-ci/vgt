@@ -81,53 +81,53 @@
   "cucumber": [
     {
       "title": "오이 견과류 빵",
-      "image": "assets/images/오이1.jpg",
+      "image": "assets2/images/오이견과류빵.jpg",
       "description": "오이와 견과류를 곁들인 촉촉한 빵",
-      "ingredients": ["오이", "견과류", "계란", "베이킹소다"]
+      "ingredients": ["오이", "달걀", "피칸", "베이킹파우더"]
     },
     {
       "title": "오이살사",
-      "image": "assets/images/오이2.jpg",
+      "image": "assets2/images/오이살사.jpg",
       "description": "여름 오이를 활용한 오이 살사",
-      "ingredients": ["오이", "할라피뇨고추", "당근", "양파", "레몬즙"]
+      "ingredients": ["오이", "토마토", "마늘", "양파", "레몬즙", "파슬리"]
     },
     {
       "title": "오이 샌드위치",
-      "image": "assets/images/오이3.jpg",
+      "image": "assets2/images/오이샌드위치.jpg",
       "description": "채식주의자의 꿈. 오이 샌드위치!",
-      "ingredients": ["오이", "식빵", "버터"]
+      "ingredients": ["오이", "식빵", "마요네즈", "크림치즈"]
     },
     {
       "title": "오이 샐러드",
-      "image": "assets/images/오이4.jpg",
+      "image": "assets2/images/오이샐러드.jpg",
       "description": "상큼하고 새콤달콤한 오이 샐러드",
-      "ingredients": ["오이", "양파", "레몬즙"]
+      "ingredients": ["오이", "양파", "식초"]
     }
   ],
   "potato": [
     {
       "title": "가정식 감자칩",
-      "image": "assets/images/감자1.jpg",
+      "image": "assets2/images/가정식감자칩.jpg",
       "description": "집에서 만드는 쉽고 재미있는 감자칩 ",
-      "ingredients": ["감자", "소금"]
+      "ingredients": ["감자", "소금", "오일"]
     },
     {
       "title": "구운감자",
-      "image": "assets/images/감자3.jpg",
+      "image": "assets2/images/구운감자.jpg",
       "description": "껍질은 바삭! 속은 가벼운 폭신한 구운 감자",
-      "ingredients": ["감자", "체다치즈", "베이컨"]
+      "ingredients": ["감자", "체다치즈", "올리브오일", "버터"]
     },
     {
       "title": "구운감자수프",
-      "image": "assets/images/감자4.jpg",
+      "image": "assets2/images/감자수프.jpg",
       "description": "남은 구운감자를 활용한 감자수프",
-      "ingredients": ["감자", "양파", "버터", "우유", "다진마늘"]
+      "ingredients": ["감자", "베이컨", "버터", "우유", "사워크림"]
     },
     {
       "title": "웨지감자",
-      "image": "assets/images/감자5.jpg",
+      "image": "assets2/images/웨지감자.jpg",
       "description": "핫도그와 버거와 잘 어울리는 웨지감자",
-      "ingredients": ["감자", "올리브유", "소금"]
+      "ingredients": ["감자", "올리브오일", "파프리카", "칠리파우더"]
     }
   ]
 }
