@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:carousel_slider/carousel_slider.dart'; // Import carousel_slider package
+import 'package:carousel_slider/carousel_slider.dart';
 
 class RecipeRandomizer extends StatefulWidget {
   @override
@@ -12,15 +12,13 @@ class RecipeRandomizer extends StatefulWidget {
 class _RecipeRandomizerState extends State<RecipeRandomizer> {
   List<Map> _products = [];
   int _current = 0;
-  Map _selectedIndex = {}; // 선택된 인덱스를 저장하는 맵
-  late CarouselController
-      _carouselController; // Declare _carouselController with late keyword
+  Map _selectedIndex = {};
+  late CarouselController _carouselController;
 
   @override
   void initState() {
     super.initState();
-    _carouselController =
-        CarouselController(); // Initialize _carouselController
+    _carouselController = CarouselController();
     loadRecipeData();
   }
 
@@ -40,7 +38,6 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
     category1.add(allCategories[random.nextInt(9)]);
     List<Map> selectedRecipes = [];
 
-    // 각 카테고리에서 하나의 레시피를 랜덤하게 선택
     for (String category in category1) {
       List<dynamic> categoryRecipes = decodedData[category];
       if (categoryRecipes.isNotEmpty) {
@@ -49,7 +46,6 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
       }
     }
 
-    // 선택된 레시피들을 _products 리스트에 할당
     setState(() {
       _products = selectedRecipes;
     });
@@ -57,12 +53,14 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
 
   @override
   Widget build(BuildContext context) {
+    final double itemHeight = MediaQuery.of(context).size.height / 2.5;
+    final double itemWidth = MediaQuery.of(context).size.width / 2;
+
     return Scaffold(
       floatingActionButton: _selectedIndex.isNotEmpty
           ? FloatingActionButton(
               onPressed: () {
-                // 선택된 레시피로 다음 단계로 이동하는 코드 추가
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => NextPage()));
+                // Add navigation code here
               },
               child: Icon(Icons.arrow_forward_ios),
             )
@@ -85,7 +83,7 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
           crossAxisCount: 2,
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
-          childAspectRatio: 0.8, // Adjust childAspectRatio for desired size
+          childAspectRatio: itemWidth / itemHeight,
         ),
         itemCount: _products.length,
         itemBuilder: (BuildContext context, int index) {
@@ -111,13 +109,16 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  ClipRRect(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(20)),
-                    child: Image.asset(recipe['image'],
+                  Flexible(
+                    child: ClipRRect(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(20)),
+                      child: Image.asset(
+                        recipe['image'],
                         fit: BoxFit.cover,
-                        height: 200 // Adjust height of image as needed
-                        ),
+                        height: itemHeight * 0.6,
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.all(12),
@@ -127,7 +128,7 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
                         Text(
                           recipe['title'],
                           style: TextStyle(
-                            fontSize: 18, // Adjust fontSize as needed
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -135,7 +136,7 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
                         Text(
                           recipe['description'],
                           style: TextStyle(
-                            fontSize: 14, // Adjust fontSize as needed
+                            fontSize: 14,
                             color: Colors.grey.shade600,
                           ),
                         ),
