@@ -45,12 +45,24 @@ class CameraPageState extends State<CameraPage> {
       ),
       body: _isLoading // 로딩 중인지 확인
           ? Center(
-              child: SpinKitFadingCircle(
-                // Spinkit을 사용하여 로딩 인디케이터 표시
-                color: Colors.blue, // 인디케이터 색상 설정
-                size: 50.0, // 인디케이터 크기 설정
+              child: SpinKitSpinningCircle(
+                itemBuilder: (context, index) {
+                  return Center(
+                    child: Text(
+                      "🐶",
+                      style: TextStyle(fontSize: 40),
+                    ),
+                  );
+                },
               ),
             )
+          //  Center(
+          //     child: SpinKitFadingCircle(
+          //       // Spinkit을 사용하여 로딩 인디케이터 표시
+          //       color: Colors.blue, // 인디케이터 색상 설정
+          //       size: 50.0, // 인디케이터 크기 설정
+          //     ),
+          //   )
           : Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
