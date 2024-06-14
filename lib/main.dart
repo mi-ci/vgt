@@ -64,7 +64,7 @@ class _SendMoneyState extends State<HomePage> {
 
   Future<void> uploadImage(
       File imageFile, GlobalKey<CameraPageState> cameraPageKey) async {
-    String apiUrl = 'http://52.79.69.209:5000/predict';
+    String apiUrl = 'http://3.39.6.92:5000/predict';
     var request = http.MultipartRequest('POST', Uri.parse(apiUrl));
     request.files
         .add(await http.MultipartFile.fromPath('frame', imageFile.path));
