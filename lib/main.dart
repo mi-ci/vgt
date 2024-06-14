@@ -144,7 +144,7 @@ class _SendMoneyState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 50,
+                    height: 20,
                   ),
                   FadeInDown(
                     from: 100,
