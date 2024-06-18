@@ -72,7 +72,7 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
           crossAxisCount: 2,
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
-          childAspectRatio: 1.0, // 비율 조정
+          childAspectRatio: 0.65, // 비율 조정
         ),
         itemCount: _products.length,
         itemBuilder: (BuildContext context, int index) {
@@ -100,7 +100,7 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Expanded(
-                      flex: 4, // 이미지 영역이 4/7 비율
+                      flex: 4, // 이미지 영역이 3/7 비율
                       child: ClipRRect(
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(20),
@@ -112,9 +112,9 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
                       ),
                     ),
                     Expanded(
-                      flex: 3, // 설명 영역이 3/7 비율
+                      flex: 3, // 설명 영역이 2/7 비율
                       child: Padding(
-                        padding: EdgeInsets.all(12),
+                        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8), // 패딩 조정
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
