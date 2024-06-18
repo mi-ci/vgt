@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'recipedetailPage.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class RecipeRandomizer extends StatefulWidget {
   @override
@@ -118,27 +118,38 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
                         height: itemHeight * 0.6,
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            recipe['title'] ?? '',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                    SizedBox(height: 12),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AutoSizeText(
+                              recipe['title'] ?? '',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              maxLines: 2, // 최대 2줄까지 표시
+                              overflow:
+                                  TextOverflow.ellipsis, // 넘칠 경우 '...'으로 생략
                             ),
-                          ),
-                          SizedBox(height: 8),
-                          Text(
-                            recipe['description'] ?? '',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey.shade600,
+                            SizedBox(height: 8),
+                            Expanded(
+                              child: AutoSizeText(
+                                recipe['description'] ?? '',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey.shade600,
+                                ),
+                                maxLines: 3, // 최대 3줄까지 표시
+                                overflow:
+                                    TextOverflow.ellipsis, // 넘칠 경우 '...'으로 생략
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],
