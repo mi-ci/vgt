@@ -45,10 +45,22 @@ class CameraPageState extends State<CameraPage> {
       ),
       body: Stack(
         children: [
+<<<<<<< HEAD
           // 흰색 배경
           Positioned.fill(
             child: Container(
               color: Colors.white,
+=======
+          // 배경 이미지 설정
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets3/vg.jpg'), // 여기에 사용할 이미지 경로를 넣어주세요
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5),
+                    BlendMode.dstATop), // 여기서 투명도 조절
+              ),
+>>>>>>> 61896bb2e6fd7e97a9f0e4f3c43b97984ab11d70
             ),
           ),
           // 배경 이미지 설정
