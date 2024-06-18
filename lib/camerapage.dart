@@ -46,6 +46,7 @@ class CameraPageState extends State<CameraPage> {
       body: Stack(
         children: [
           // 배경 이미지 설정
+<<<<<<< HEAD
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
@@ -57,6 +58,16 @@ class CameraPageState extends State<CameraPage> {
                     BlendMode.dstATop,
                   ),
                 ),
+=======
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    'assets3/vgt_image.jpg'), // 여기에 사용할 이미지 경로를 넣어주세요
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5),
+                    BlendMode.dstATop), // 여기서 투명도 조절
+>>>>>>> 2b87c2d45a5ecd91b5656bd6fb2d58c7051a8bf3
               ),
             ),
           ),
