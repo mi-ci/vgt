@@ -53,9 +53,6 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
 
   @override
   Widget build(BuildContext context) {
-    final double itemHeight = MediaQuery.of(context).size.height / 2.5;
-    final double itemWidth = MediaQuery.of(context).size.width / 2;
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -75,7 +72,7 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
           crossAxisCount: 2,
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
-          childAspectRatio: itemWidth / itemHeight,
+          childAspectRatio: 0.7, // 조정 가능한 비율
         ),
         itemCount: _products.length,
         itemBuilder: (BuildContext context, int index) {
@@ -94,32 +91,28 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
             },
             child: Hero(
               tag: heroTag, // 각 레시피에 대한 고유한 태그 사용
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
+              child: Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      blurRadius: 10,
-                      offset: Offset(0, 5),
-                    ),
-                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ClipRRect(
-                      borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(20)),
-                      child: Image.asset(
-                        recipe['image'] ?? '',
-                        fit: BoxFit.cover,
-                        height: itemHeight * 0.6,
+                    Expanded(
+                      flex: 3,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20),
+                        ),
+                        child: Image.asset(
+                          recipe['image'] ?? '',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                    SizedBox(height: 12),
                     Expanded(
+                      flex: 2,
                       child: Padding(
                         padding: EdgeInsets.all(12),
                         child: Column(
@@ -131,9 +124,8 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
-                              maxLines: 2, // 최대 2줄까지 표시
-                              overflow:
-                                  TextOverflow.ellipsis, // 넘칠 경우 '...'으로 생략
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
                             SizedBox(height: 8),
                             Expanded(
@@ -143,9 +135,8 @@ class _RecipeRandomizerState extends State<RecipeRandomizer> {
                                   fontSize: 14,
                                   color: Colors.grey.shade600,
                                 ),
-                                maxLines: 3, // 최대 3줄까지 표시
-                                overflow:
-                                    TextOverflow.ellipsis, // 넘칠 경우 '...'으로 생략
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],

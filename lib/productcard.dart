@@ -14,19 +14,18 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> {
-  int _current = 0;
-  dynamic _selectedIndex = {};
   CarouselController _carouselController = CarouselController();
 
   List<Map<String, dynamic>> _products = [];
+  Map<String, dynamic>? _selectedProduct;
 
   @override
   void initState() {
     super.initState();
-    loadProducts();
+    _loadProducts();
   }
 
-  Future<void> loadProducts() async {
+  Future<void> _loadProducts() async {
     final String response = await rootBundle.loadString('assets/recc.json');
     final jsonData = json.decode(response);
     final table = jsonData[widget.food];
@@ -60,12 +59,6 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: _selectedIndex.isNotEmpty
-          ? FloatingActionButton(
-              onPressed: () {},
-              child: Icon(Icons.arrow_forward_ios),
-            )
-          : null,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -89,7 +82,7 @@ class _ProductCardState extends State<ProductCard> {
             pageSnapping: true,
             onPageChanged: (index, reason) {
               setState(() {
-                _current = index;
+                _selectedProduct = _products[index];
               });
             },
           ),
@@ -98,14 +91,7 @@ class _ProductCardState extends State<ProductCard> {
               builder: (BuildContext context) {
                 return GestureDetector(
                   onTap: () {
-                    setState(() {
-                      if (_selectedIndex == product) {
-                        _selectedIndex = {};
-                      } else {
-                        _selectedIndex = product;
-                        _navigateToDetailPage(product); // 상세 페이지로 이동
-                      }
-                    });
+                    _navigateToDetailPage(product); // 상세 페이지로 이동
                   },
                   child: AnimatedContainer(
                     duration: Duration(milliseconds: 300),
@@ -113,22 +99,16 @@ class _ProductCardState extends State<ProductCard> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
-                      border: _selectedIndex == product
-                          ? Border.all(color: Colors.blue.shade500, width: 3)
+                      border: _selectedProduct == product
+                          ? Border.all(color: Colors.transparent, width: 0)
                           : null,
-                      boxShadow: _selectedIndex == product
-                          ? [
-                              BoxShadow(
-                                  color: Colors.blue.shade100,
-                                  blurRadius: 30,
-                                  offset: Offset(0, 10)),
-                            ]
-                          : [
-                              BoxShadow(
-                                  color: Colors.grey.withOpacity(0.2),
-                                  blurRadius: 20,
-                                  offset: Offset(0, 5)),
-                            ],
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          blurRadius: 20,
+                          offset: Offset(0, 5),
+                        ),
+                      ],
                     ),
                     child: SingleChildScrollView(
                       child: Column(
@@ -141,8 +121,7 @@ class _ProductCardState extends State<ProductCard> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Hero(
-                              tag:
-                                  'product_image_${product['title']}', // 각 제품 이미지에 대한 고유 태그
+                              tag: 'product_image_${product['title']}',
                               child: Image.asset(product['image'],
                                   fit: BoxFit.cover),
                             ),

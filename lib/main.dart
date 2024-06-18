@@ -8,7 +8,6 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'camerapage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'tokenPage.dart';
 import 'dart:convert';
 
 void main() {
@@ -124,19 +123,17 @@ class _SendMoneyState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            '마녀의 냉장고',
-            style: TextStyle(color: Colors.black),
-          ),
-          // leading: BackButton(
-          //   color: Colors.black,
-          // ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          '마녀의 냉장고',
+          style: TextStyle(color: Colors.black),
         ),
-        body: Stack(children: [
+      ),
+      body: Stack(
+        children: [
           SingleChildScrollView(
             child: Container(
               width: double.infinity,
@@ -158,33 +155,35 @@ class _SendMoneyState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(200),
                       ),
                       child: ClipRRect(
-                          borderRadius: BorderRadius.circular(510),
-                          child: Image.asset('assets/images/main.jpg')),
+                        borderRadius: BorderRadius.circular(510),
+                        child: Image.asset('assets/images/main.jpg'),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 50,
                   ),
                   FadeInUp(
-                      from: 60,
-                      delay: Duration(milliseconds: 500),
-                      duration: Duration(milliseconds: 1000),
-                      child: Text(
-                        "어떤 요리를 할지 고민이세요? 저희가 알려드릴게요",
-                        style: TextStyle(color: Colors.grey),
-                      )),
+                    from: 60,
+                    delay: Duration(milliseconds: 500),
+                    duration: Duration(milliseconds: 1000),
+                    child: Text(
+                      "어떤 요리를 할지 고민이세요? 저희가 알려드릴게요",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
                   FadeInUp(
-                      from: 30,
-                      delay: Duration(milliseconds: 800),
-                      duration: Duration(milliseconds: 1000),
-                      child: Text(
-                        '재료를 촬영해보세요',
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      )),
+                    from: 30,
+                    delay: Duration(milliseconds: 800),
+                    duration: Duration(milliseconds: 1000),
+                    child: Text(
+                      '재료를 촬영해보세요',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ),
                   SizedBox(
                     height: 45,
                   ),
@@ -221,41 +220,13 @@ class _SendMoneyState extends State<HomePage> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => RecipeRandomizer()),
+                              MaterialPageRoute(builder: (context) => RecipeRandomizer()),
                             );
                           },
                           minWidth: double.infinity,
                           height: 50,
                           child: Text(
                             "오늘의 추천 레시피",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10.0), // 여기에 SizedBox를 추가하여 위젯 사이에 간격을 줍니다.
-                  FadeInUp(
-                    duration: Duration(milliseconds: 1000),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                      child: Material(
-                        elevation: 5,
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.black,
-                        child: MaterialButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => TokenPage()),
-                            );
-                          },
-                          minWidth: double.infinity,
-                          height: 50,
-                          child: Text(
-                            "토큰 페이지",
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                         ),
@@ -275,6 +246,8 @@ class _SendMoneyState extends State<HomePage> {
                 child: AdWidget(ad: _bannerAd),
               ),
             ),
-        ]));
+        ],
+      ),
+    );
   }
 }

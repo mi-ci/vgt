@@ -17,8 +17,7 @@ class ProductDetailPage extends StatelessWidget {
           children: [
             Hero(
               tag: 'product_image_${product['title']}', // 각 제품 이미지에 대한 고유 태그
-              child:
-                  Image.asset(product['image'], fit: BoxFit.cover, height: 320),
+              child: Image.asset(product['image'], fit: BoxFit.cover, height: 320),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -28,7 +27,7 @@ class ProductDetailPage extends StatelessWidget {
                   SizedBox(height: 20),
                   Text(
                     product['title'],
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                   SizedBox(height: 10),
                   Text(

@@ -46,16 +46,6 @@ class RecipeDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 16),
-            Padding(
-              padding: EdgeInsets.all(16),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Add your action here
-                },
-                child: Text('요리하기'),
-              ),
-            ),
           ],
         ),
       ),
