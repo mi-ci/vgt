@@ -41,36 +41,33 @@ class CameraPageState extends State<CameraPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Camera Page'),
+        title: Text('카메라로 음식 인식'),
       ),
       body: Stack(
         children: [
-          // 배경 이미지 설정
-<<<<<<< HEAD
+          // 흰색 배경
           Positioned.fill(
             child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets3/vg.jpg'),
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.7),
-                    BlendMode.dstATop,
-                  ),
-                ),
-=======
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                    'assets3/vgt_image.jpg'), // 여기에 사용할 이미지 경로를 넣어주세요
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5),
-                    BlendMode.dstATop), // 여기서 투명도 조절
->>>>>>> 2b87c2d45a5ecd91b5656bd6fb2d58c7051a8bf3
-              ),
+              color: Colors.white,
             ),
           ),
+          // 배경 이미지 설정
+          if (_isLoading)
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets3/vg.jpg'),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(0.5),
+                      BlendMode.dstATop,
+                    ),
+                  ),
+                ),
+                color: Colors.black.withOpacity(0.5), // 추가: 어두운 투명도 배경
+              ),
+            ),
           Center(
             child: _isLoading
                 ? SpinKitSpinningCircle(
