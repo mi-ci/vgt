@@ -46,6 +46,19 @@ class CameraPageState extends State<CameraPage> {
       body: Stack(
         children: [
           // 배경 이미지 설정
+<<<<<<< HEAD
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets3/vg.jpg'),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.7),
+                    BlendMode.dstATop,
+                  ),
+                ),
+=======
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -54,6 +67,7 @@ class CameraPageState extends State<CameraPage> {
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5),
                     BlendMode.dstATop), // 여기서 투명도 조절
+>>>>>>> 2b87c2d45a5ecd91b5656bd6fb2d58c7051a8bf3
               ),
             ),
           ),
@@ -70,46 +84,27 @@ class CameraPageState extends State<CameraPage> {
                     },
                   )
                 : Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Center(
-                        child: FadeInDown(
-                          key: _imageKey,
+                      FadeInDown(
+                        key: _imageKey,
+                        from: 30,
+                        delay: Duration(milliseconds: 500),
+                        duration: Duration(milliseconds: 1000),
+                        child: _displayedImage ?? Text('Loading..'),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      if (food != null)
+                        FadeInUp(
                           from: 30,
-                          delay: Duration(milliseconds: 500),
+                          delay: Duration(milliseconds: 800),
                           duration: Duration(milliseconds: 1000),
-                          child: _displayedImage ?? Text('Loading..'),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      if (food != null)
-                        Center(
-                          child: FadeInUp(
-                            from: 30,
-                            delay: Duration(milliseconds: 500),
-                            duration: Duration(milliseconds: 1000),
-                            child: Text(
-                              '$food가 인식되었네요!',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ),
-                        ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      if (food != null)
-                        Center(
-                          child: FadeInUp(
-                            from: 30,
-                            delay: Duration(milliseconds: 800),
-                            duration: Duration(milliseconds: 1000),
-                            child: Text(
-                              '$food로 만들 수 있는 요리를 알아보러갈까요?',
-                              style: TextStyle(color: Colors.grey),
-                            ),
+                          child: Text(
+                            '$food가 인식되었네요!',
+                            style: TextStyle(color: Colors.grey),
                           ),
                         ),
                       SizedBox(
