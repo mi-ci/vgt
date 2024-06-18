@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:animate_do/animate_do.dart';
+import 'productcard.dart';
 
 class CameraPage extends StatefulWidget {
   CameraPage({Key? key}) : super(key: key);
@@ -48,9 +49,11 @@ class CameraPageState extends State<CameraPage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets3/vgt_image.jpg'), // 여기에 사용할 이미지 경로를 넣어주세요
+                image: AssetImage(
+                    'assets3/vgt_image.jpg'), // 여기에 사용할 이미지 경로를 넣어주세요
                 fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop), // 여기서 투명도 조절
+                colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5),
+                    BlendMode.dstATop), // 여기서 투명도 조절
               ),
             ),
           ),
@@ -117,7 +120,8 @@ class CameraPageState extends State<CameraPage> {
                           delay: Duration(milliseconds: 1500),
                           duration: Duration(milliseconds: 1000),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 50.0),
                             child: Material(
                               elevation: 5,
                               borderRadius: BorderRadius.circular(10),
@@ -127,7 +131,8 @@ class CameraPageState extends State<CameraPage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => ProductCard(food: food),
+                                      builder: (context) =>
+                                          ProductCard(food: food),
                                     ),
                                   );
                                 },
@@ -135,7 +140,8 @@ class CameraPageState extends State<CameraPage> {
                                 height: 50,
                                 child: Text(
                                   "추천 요리 보러가기",
-                                  style: TextStyle(color: Colors.white, fontSize: 16),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 16),
                                 ),
                               ),
                             ),
