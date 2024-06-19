@@ -1,263 +1,235 @@
 {
-  "potato": [
+  "tuna": [
     {
-      "title": "가정식 감자칩",
-      "image": "assets/images/감자1.jpg",
-      "description": "집에서 만드는 쉽고 재미있는 감자칩 ",
-      "ingredients": ["감자", "소금"]
+      "title": "비빔참치",
+      "image": "assets/images/비빔참치.jpg",
+      "description": "밥, 크래커 등 여러 음식에 깔끔하게 덧붙일 수 있는 레시피!  ",
+      "ingredients": ["참치", "양파", "대파", "다진마늘"]
     },
     {
-      "title": "감자 팬케이크",
-      "image": "assets/images/감자2.jpg",
-      "description": "속이 푹신한 바삭한 으깬 감자 팬케이크",
-      "ingredients": ["감자", "양파", "햄", "계란", "치즈"]
+      "title": "호두 참치면",
+      "image": "assets/images/호두참치면.jpg",
+      "description": "간단하면서도 멋드러지는 면 요리!",
+      "ingredients": ["참치", "라면", "고추장", "식초", "호두"]
     },
     {
-      "title": "구운감자",
-      "image": "assets/images/감자3.jpg",
-      "description": "껍질은 바삭! 속은 가벼운 폭신한 구운 감자",
-      "ingredients": ["감자", "체다치즈", "베이컨"]
+      "title": "고추장 참치",
+      "image": "assets/images/고추장참치.jpg",
+      "description": "귀찮을 때 후딱 만들어먹을 수 있는 최고의 밥반찬!",
+      "ingredients": ["참치", "고추장", "다진마늘"]
     },
     {
-      "title": "구운감자수프",
-      "image": "assets/images/감자4.jpg",
-      "description": "남은 구운감자를 활용한 감자수프",
-      "ingredients": ["감자", "양파", "버터", "우유", "다진마늘"]
+      "title": "참치마요 오니기리",
+      "image": "assets/images/참치오니기리.jpg",
+      "description": "직장인 도시락으로 안성맞춤! 고소한 참치마요 오니기리",
+      "ingredients": ["참치", "밥", "마요네즈", "깨", "김"]
     },
     {
-      "title": "웨지감자",
-      "image": "assets/images/감자5.jpg",
-      "description": "핫도그와 버거와 잘 어울리는 웨지감자",
-      "ingredients": ["감자", "올리브유", "소금"]
+      "title": "참치김치찌개",
+      "image": "assets/images/참치김치지개.jpg",
+      "description": "한국인의 단골 메뉴, 진하고 매콤한 최고의 요리",
+      "ingredients": ["참치", "김치", "물", "국간장", "두부", "대파"]
+    },
+    {
+      "title": "참치죽",
+      "image": "assets/images/참치죽.jpg",
+      "description": "속이 불편할 때 최고!",
+      "ingredients": ["참치", "자투리채소", "밥", "국간장", "김가루"]
     }
   ],
   "pumpkin": [
     {
-      "title": "호박 수프",
-      "image": "assets/images/호박1.jpg",
-      "description": "맛있고 부드러운 호박 수프",
-      "ingredients": ["호박", "양파", "생크림", "버터"]
+      "title": "구운단호박",
+      "image": "assets/images/구운단호박.jpg",
+      "description": "간단하게 구운 단호박 요리!",
+      "ingredients": ["단호박", "올리브오일", "마늘"]
     },
     {
-      "title": "호박 치즈케이크",
-      "image": "assets/images/호박2.jpg",
-      "description": "전통적 치즈케이크의 훌륭한 대안",
+      "title": "단호박빵",
+      "image": "assets/images/단호박빵.jpg",
+      "description": "추수감사절에 먹기 좋은 빵!",
       "ingredients": [
-        "호박",
-        "통밀쿠키",
-        "플레인요구르트",
-        "생크림",
-        "바닐라빈",
-        "달걀"
-      ]
-    },
-    {
-      "title": "호박 파이",
-      "image": "assets/images/호박3.jpg",
-      "description": "치크케이크와 호박파이의 결합",
-      "ingredients": ["호박", "생크림", "우유", "계란", "물엿"]
-    },
-    {
-      "title": "호박 롤 케이크",
-      "image": "assets/images/호박4.jpg",
-      "description": "우아하고 맛있는 식후 간식",
-      "ingredients": [
-        "호박",
+        "단호박",
+        "버터",
         "밀가루",
-        "설탕",
         "달걀",
-        "베이킹소다",
-        "계피가루"
+        "베이킹파우더",
+        "다진호두",
+        "베이킹소다"
       ]
-    }
-  ],
-  "radish": [
-    {
-      "title": "오징어 무 조림",
-      "image": "assets/images/무1.jpg",
-      "description": "맛있는 고등어 무 조림",
-      "ingredients": ["무", "오징어", "대파", "홍고추", "양파"]
     },
     {
-      "title": "깍두기",
-      "image": "assets/images/무2.jpg",
-      "description": "매콤하고, 새콤하고, 달콤해요! ",
-      "ingredients": ["무", "고춧가루", "천일염", "다진마늘"]
-    },
-    {
-      "title": "래디쉬 딥",
-      "image": "assets/images/무3.jpg",
-      "description": "남녀노소 좋아하는 매콤한 무찜",
-      "ingredients": ["무", "설탕", "청양고추"]
-    },
-    {
-      "title": "무 피클",
-      "image": "assets/images/무4.jpg",
-      "description": "24시간 후 완성되는 피클",
-      "ingredients": ["무", "적채", "식초", "피클링스파이스"]
-    }
-  ],
-  "cabbage": [
-    {
-      "title": "간장 양배추 구이",
-      "image": "assets/images/양배추4.jpg",
-      "description": "간장 베이스의 양배추 요리",
-      "ingredients": ["양배추", "간장", "요리당"]
-    },
-    {
-      "title": "양배추 롤",
-      "image": "assets/images/양배추3.jpg",
-      "description": "요리 준비가 간단한 양배추 롤!",
-      "ingredients": ["양배추", "대파", "토마토", "새송이버섯"]
-    },
-    {
-      "title": "양배추 수프",
-      "image": "assets/images/양배추2.jpg",
-      "description": "추운 겨울 밤에 어울리는 메뉴!",
-      "ingredients": ["양배추", "토마토", "통후추"]
-    },
-    {
-      "title": "양배추 스테이크",
-      "image": "assets/images/양배추1.jpg",
-      "description": "몸에 좋고 건강한 메뉴!",
-      "ingredients": ["양배추", "소금", "후추"]
-    }
-  ],
-  "broccoli": [
-    {
-      "title": "브로콜리 샐러드",
-      "image": "assets/images/브로콜리1.jpg",
-      "description": "신선한 브로콜리와 드레싱의 조합!",
-      "ingredients": ["브로콜리", "양파", "토마토", "샐러드드레싱"]
-    },
-    {
-      "title": "브로콜리 치킨 캐서롤",
-      "image": "assets/images/브로콜리2.jpg",
-      "description": "맛있고 풍미가득한 캐서롤",
+      "title": "단호박 수프",
+      "image": "assets/images/단호박수프.jpg",
+      "description": "달콤하고 부드러운 단호박 수프",
       "ingredients": [
-        "브로콜리",
-        "닭가슴살",
+        "단호박",
+        "계피가루",
+        "코코넛오일",
+        "커리파우더",
         "양파",
-        "밥",
-        "밀가루",
-        "사워크림"
+        "아몬드우유"
       ]
     },
     {
-      "title": "브로콜리 크림 수프",
-      "image": "assets/images/브로콜리3.jpg",
-      "description": "맛있고 진한 브로콜리 스프!",
-      "ingredients": ["브로콜리", "생크림", "양파"]
-    },
-    {
-      "title": "햄과 브로콜리",
-      "image": "assets/images/브로콜리4.jpg",
-      "description": "평안함과 포만감 가득한 메뉴",
-      "ingredients": ["브로콜리", "햄", "파스타면"]
-    }
-  ],
-  "pimento": [
-    {
-      "title": "크리미 피망 치즈",
-      "image": "assets/images/피망1.jpg",
-      "description": "샌드위치와 크래커와 잘어울리는 피망치즈",
-      "ingredients": ["피망", "치즈", "크래커"]
-    },
-    {
-      "title": "피망 치즈 스프레드",
-      "image": "assets/images/피망2.jpg",
-      "description": "쉽고 맛있는 피멘토 치즈",
-      "ingredients": ["피망", "샬롯", "체다치즈", "카이엔고추", "올리브오일"]
-    },
-    {
-      "title": "피망 치즈",
-      "image": "assets/images/피망3.jpg",
-      "description": "할라피뇨를 곁들인 훌륭한 피멘토 치즈",
-      "ingredients": ["피망", "할라피뇨", "크림치즈"]
-    },
-    {
-      "title": "피망 치즈 달걀",
-      "image": "assets/images/피망4.jpg",
-      "description": "가족모임 필수품 피멘토 치즈 데블드 에그",
-      "ingredients": ["피망", "치즈", "계란", "허브"]
+      "title": "단호박 케서롤",
+      "image": "assets/images/단호박케서롤.jpg",
+      "description": "먹음직스러운 단호박 요리!",
+      "ingredients": ["단호박", "버터", "피칸", "시리얼", "사과", "녹인버터"]
     }
   ],
   "cucumber": [
     {
       "title": "오이 견과류 빵",
-      "image": "assets/images/오이1.jpg",
+      "image": "assets/images/오이견과류빵.jpg",
       "description": "오이와 견과류를 곁들인 촉촉한 빵",
-      "ingredients": ["오이", "견과류", "계란", "베이킹소다"]
+      "ingredients": ["오이", "달걀", "피칸", "베이킹파우더"]
     },
     {
       "title": "오이살사",
-      "image": "assets/images/오이2.jpg",
+      "image": "assets/images/오이살사.jpg",
       "description": "여름 오이를 활용한 오이 살사",
-      "ingredients": ["오이", "할라피뇨고추", "당근", "양파", "레몬즙"]
+      "ingredients": ["오이", "토마토", "마늘", "양파", "레몬즙", "파슬리"]
     },
     {
       "title": "오이 샌드위치",
-      "image": "assets/images/오이3.jpg",
+      "image": "assets/images/오이샌드위치.jpg",
       "description": "채식주의자의 꿈. 오이 샌드위치!",
-      "ingredients": ["오이", "식빵", "버터"]
+      "ingredients": ["오이", "식빵", "마요네즈", "크림치즈"]
     },
     {
       "title": "오이 샐러드",
-      "image": "assets/images/오이4.jpg",
+      "image": "assets/images/오이샐러드.jpg",
       "description": "상큼하고 새콤달콤한 오이 샐러드",
-      "ingredients": ["오이", "양파", "레몬즙"]
+      "ingredients": ["오이", "양파", "식초"]
     }
   ],
-  "tomato": [
+  "potato": [
     {
-      "title": "토마토 수프",
-      "image": "assets/images/토마토1.jpg",
-      "description": "빠르고 간단한 토마도 수프",
-      "ingredients": ["토마토", "밀가루", "마늘", "양파", "샐러리"]
+      "title": "가정식 감자칩",
+      "image": "assets/images/가정식감자칩.jpg",
+      "description": "집에서 만드는 쉽고 재미있는 감자칩 ",
+      "ingredients": ["감자", "소금", "오일"]
     },
     {
-      "title": "토마토 파이",
-      "image": "assets/images/토마토2.jpg",
-      "description": "BLT 샌드위치 맛이 나는 토마토 파이",
-      "ingredients": ["토마토", "페이스트리", "양파", "페스토"]
+      "title": "구운감자",
+      "image": "assets/images/구운감자.jpg",
+      "description": "껍질은 바삭! 속은 가벼운 폭신한 구운 감자",
+      "ingredients": ["감자", "체다치즈", "올리브오일", "버터"]
     },
     {
-      "title": "토마토와 마늘 파스타",
-      "image": "assets/images/토마토3.jpg",
-      "description": "상큼 달콤한 토마토 파스타 레시피",
-      "ingredients": ["토마토", "마늘", "올리브오일", "파스타면"]
+      "title": "구운감자수프",
+      "image": "assets/images/감자수프.jpg",
+      "description": "남은 구운감자를 활용한 감자수프",
+      "ingredients": ["감자", "베이컨", "버터", "우유", "사워크림"]
     },
     {
-      "title": "홈메이드 토마토 소스",
-      "image": "assets/images/토마토4.jpg",
-      "description": "풍미 가득한 홈메이드 토마토 소스",
-      "ingredients": ["토마토", "바질파우더", "월계수잎"]
+      "title": "웨지감자",
+      "image": "assets/images/웨지감자.jpg",
+      "description": "핫도그와 버거와 잘 어울리는 웨지감자",
+      "ingredients": ["감자", "올리브오일", "파프리카", "칠리파우더"]
+    }
+  ],
+  "brocoli": [
+    {
+      "title": "브로콜리 맛살 무침",
+      "image": "assets/images/브로콜리맛살무침.jpg",
+      "description": "톡 쏘는 양념과 아삭아삭 브로콜리, 쫄깃쫄깃 맛살의 조화"
+    },
+    {
+      "title": "브로콜리 두부무침",
+      "image": "assets/images/브로콜리두부무침.jpg",
+      "description": "두부와 브로콜리가 가득! 영양만점 밑반찬"
+    },
+    {
+      "title": "브로콜리 크림스프",
+      "image": "assets/images/브로콜리크림스프.jpg",
+      "description": "영양 가득 브로콜리와 부드러운 수프의 만남"
     }
   ],
   "carrot": [
     {
-      "title": "당근 컵케이크",
-      "image": "assets/images/당근1.jpg",
-      "description": "완벽한 단맛의 촉촉한 당근 컵케이크",
-      "ingredients": ["당근", "흑설탕", "계란", "박력분", "베이킹파우더"]
+      "title": "당근 라페",
+      "image": "assets/images/당근 라페.jpg",
+      "description": "아삭아삭 프랑스의 김치 당근라페"
     },
     {
-      "title": "당근 케이크 쿠키",
-      "image": "assets/images/당근2.jpg",
-      "description": "피크닉에 잘어울리는 당근 케이크 쿠키",
-      "ingredients": ["당근", "아몬드가루", "오트밀가루", "계피가루"]
+      "title": "당근전",
+      "image": "assets/images/당근전.jpg",
+      "description": "바삭한 식감과 예쁜 색감의 조화!"
     },
     {
-      "title": "당근 케이크",
-      "image": "assets/images/당근3.jpg",
-      "description": "촉촉하고 만들기 쉬운 당근 케이크",
-      "ingredients": ["당근", "박력분", "달걀", "베이킹파우더"]
+      "title": "당근뇨끼",
+      "image": "assets/images/당근뇨끼.jpg",
+      "description": "영양 가득한 당근으로 만든 쫀득한 뇨끼"
+    }
+  ],
+  "chicken": [
+    {
+      "title": "닭다리 허니콤보",
+      "image": "assets/images/허니콤보닭다리.jpg",
+      "description": "시중에서 파는 바로 그 맛! 짭짤 달콤"
     },
     {
-      "title": "크림 당근 수프",
-      "image": "assets/images/당근4.jpg",
-      "description": "입맛 까다로운 사람에게 적합한 수프",
-      "ingredients": ["당근", "양파", "우유", "버터", "후추"]
+      "title": "닭다리 간장조림",
+      "image": "assets/images/닭다리간장조림.jpg",
+      "description": "이것은 갈비인가 치킨인가 화제의 그 맛, 닭다리 간장조림!"
+    },
+    {
+      "title": "매콤 양념치킨",
+      "image": "assets/images/매콤양념치킨.jpg",
+      "description": "질리지도 느끼하지도 않은 깔끔한 매운맛"
+    }
+  ],
+  "mushroom": [
+    {
+      "title": "느타리버섯밥",
+      "image": "assets/images/느타리버섯밥.jpg",
+      "description": "풍부한 비타민이 함유된 느타리로 만든 밥"
+    },
+    {
+      "title": "느타리버섯 장조림",
+      "image": "assets/images/느타리버섯장조림.jpg",
+      "description": "짭짤한 한국인의 소울푸드 장조림"
+    },
+    {
+      "title": "느타리 버섯 볶음",
+      "image": "assets/images/느타리버섯볶음.jpg",
+      "description": "심심하고 간단한 반찬으로는 역시 버섯 볶음"
+    }
+  ],
+  "onion": [
+    {
+      "title": "양파 튀김",
+      "image": "assets/images/양파튀김.jpg",
+      "description": "간단한 재료로 감칠맛나고 맛있는 안주 완성"
+    },
+    {
+      "title": "양파 볶음",
+      "image": "assets/images/양파볶음.jpg",
+      "description": "짭짤 매콤 하나만 있으면 밥 한그릇이 뚝딱!"
+    },
+    {
+      "title": "양파 장아찌",
+      "image": "assets/images/양파장아찌.jpg",
+      "description": "고기와 먹을 때 함께하면 좋은 양파 장아찌!"
+    }
+  ],
+  "tomato": [
+    {
+      "title": "토마토 달걀 볶음",
+      "image": "assets/images/토달볶.jpg",
+      "description": "간단하고 빠른 밥반찬! 토달볶"
+    },
+    {
+      "title": "토마토 카프레제 샐러드",
+      "image": "assets/images/토마토카프레제.jpg",
+      "description": "손님 왔을때 최고! 예쁘고 맛있는 샐러드!"
+    },
+    {
+      "title": "토마토 팍시",
+      "image": "assets/images/토마토팍시.jpg",
+      "description": "고급스러운 프랑스의 가정식 토마토 팍시!"
     }
   ]
 }
