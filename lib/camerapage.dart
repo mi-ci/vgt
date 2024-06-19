@@ -41,7 +41,7 @@ class CameraPageState extends State<CameraPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('카메라로 음식 인식'),
+        title: Text(''),
       ),
       body: Stack(
         children: [

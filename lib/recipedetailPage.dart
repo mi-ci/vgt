@@ -18,10 +18,16 @@ class RecipeDetailPage extends StatelessWidget {
           children: [
             Hero(
               tag: heroTag,
-              child: Image.asset(
-                recipe['image'],
-                fit: BoxFit.cover,
+              child: Container(
                 height: MediaQuery.of(context).size.height / 2,
+                width: double.infinity,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    recipe['image'],
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
             SizedBox(height: 16),
