@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
-import 'productdetailPage.dart'; // 제품 상세 페이지를 import 합니다
+import 'productdetailPage.dart';
+import 'package:auto_size_text/auto_size_text.dart'; // 제품 상세 페이지를 import 합니다
 
 class ProductCard extends StatefulWidget {
   final String food;
@@ -129,21 +130,25 @@ class _ProductCardState extends State<ProductCard> {
                                   fit: BoxFit.cover),
                             ),
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
+                          SizedBox(height: 20),
+                          AutoSizeText(
                             product['title'],
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
+                            maxLines: 2, // 예시로 최대 2줄까지 표시될 수 있도록 설정
+                            minFontSize: 12, // 최소 글꼴 크기 설정
+                            overflow: TextOverflow
+                                .ellipsis, // 최대 줄 수를 초과할 경우 '...' 표시
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
+                          SizedBox(height: 20),
+                          AutoSizeText(
                             product['description'],
                             style: TextStyle(
                                 fontSize: 14, color: Colors.grey.shade600),
+                            maxLines: 3, // 예시로 최대 3줄까지 표시될 수 있도록 설정
+                            minFontSize: 10, // 최소 글꼴 크기 설정
+                            overflow: TextOverflow
+                                .ellipsis, // 최대 줄 수를 초과할 경우 '...' 표시
                           ),
                         ],
                       ),
