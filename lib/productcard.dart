@@ -28,20 +28,23 @@ class _ProductCardState extends State<ProductCard> {
   Future<void> _loadProducts() async {
     final String response = await rootBundle.loadString('assets/recc.json');
     final jsonData = json.decode(response);
-    final table = jsonData[widget.food];
+    List<String> fooli = widget.food.split(',');
     List<Map<String, dynamic>> products = [];
+    for (var i in fooli) {
+      var table = jsonData[i];
+      for (var entry in table) {
+        String title = entry['title'];
+        String image = entry['image'];
+        String description = entry['description'];
 
-    for (var entry in table) {
-      String title = entry['title'];
-      String image = entry['image'];
-      String description = entry['description'];
-
-      products.add({
-        'title': title,
-        'image': image,
-        'description': description,
-      });
+        products.add({
+          'title': title,
+          'image': image,
+          'description': description,
+        });
+      }
     }
+    // final table = jsonData[widget.food];
 
     setState(() {
       _products = products;

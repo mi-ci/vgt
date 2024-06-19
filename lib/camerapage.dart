@@ -94,7 +94,7 @@ class CameraPageState extends State<CameraPage> {
                       SizedBox(
                         height: 20,
                       ),
-                      if (food != null)
+                      if (food != null || food != '')
                         FadeInUp(
                           from: 30,
                           delay: Duration(milliseconds: 800),
@@ -104,10 +104,20 @@ class CameraPageState extends State<CameraPage> {
                             style: TextStyle(color: Colors.grey),
                           ),
                         ),
+                      if (food == '')
+                        FadeInUp(
+                          from: 30,
+                          delay: Duration(milliseconds: 800),
+                          duration: Duration(milliseconds: 1000),
+                          child: Text(
+                            '재료가 인식되지 않았네요!',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ),
                       SizedBox(
                         height: 10,
                       ),
-                      if (food != null)
+                      if (food != null || food != '')
                         FadeInUp(
                           delay: Duration(milliseconds: 1500),
                           duration: Duration(milliseconds: 1000),
