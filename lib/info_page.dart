@@ -62,6 +62,12 @@ class InfoPage extends StatelessWidget {
                   '장우진\n배은영\n도규림\n이준영\n조준형\n임태창\n',
                   style: TextStyle(fontSize: 16),
                 ),
+                SizedBox(height: 10),
+                Text(
+                  'App Version: 1.0.0',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                ),
               ],
             ),
           ),
