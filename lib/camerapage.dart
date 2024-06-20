@@ -100,7 +100,7 @@ class CameraPageState extends State<CameraPage> {
                           delay: Duration(milliseconds: 800),
                           duration: Duration(milliseconds: 1000),
                           child: Text(
-                            '$food가 인식되었네요!',
+                            '$food가 있으시네요!',
                             style: TextStyle(color: Colors.grey),
                           ),
                         ),
@@ -110,7 +110,7 @@ class CameraPageState extends State<CameraPage> {
                           delay: Duration(milliseconds: 800),
                           duration: Duration(milliseconds: 1000),
                           child: Text(
-                            '재료가 인식되지 않았네요!',
+                            '확인된 재료가 없으신것 같아요..',
                             style: TextStyle(color: Colors.grey),
                           ),
                         ),

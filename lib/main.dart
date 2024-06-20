@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'camerapage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'dart:convert';
+import 'info_page.dart'; // InfoPage를 import 합니다.
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -128,7 +129,7 @@ class _SendMoneyState extends State<HomePage> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          '마녀의 냉장고',
+          '엄마의 냉장고',
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -168,7 +169,7 @@ class _SendMoneyState extends State<HomePage> {
                     delay: Duration(milliseconds: 500),
                     duration: Duration(milliseconds: 1000),
                     child: Text(
-                      "어떤 요리를 할지 고민이세요? 저희가 알려드릴게요",
+                      "어떤 요리를 할지 고민이세요? 저희가 알려드릴게요.",
                       style: TextStyle(color: Colors.grey),
                     ),
                   ),
@@ -180,8 +181,9 @@ class _SendMoneyState extends State<HomePage> {
                     delay: Duration(milliseconds: 800),
                     duration: Duration(milliseconds: 1000),
                     child: Text(
-                      '재료를 촬영해보세요',
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      '재료를 촬영해보세요!',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
                   SizedBox(
@@ -200,14 +202,14 @@ class _SendMoneyState extends State<HomePage> {
                           minWidth: double.infinity,
                           height: 50,
                           child: Text(
-                            "촬영하기",
+                            "재료 촬영하기",
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 10.0), // 여기에 SizedBox를 추가하여 위젯 사이에 간격을 줍니다.
+                  SizedBox(height: 10.0),
                   FadeInUp(
                     duration: Duration(milliseconds: 1000),
                     child: Padding(
@@ -220,7 +222,8 @@ class _SendMoneyState extends State<HomePage> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => RecipeRandomizer()),
+                              MaterialPageRoute(
+                                  builder: (context) => RecipeRandomizer()),
                             );
                           },
                           minWidth: double.infinity,
@@ -248,6 +251,22 @@ class _SendMoneyState extends State<HomePage> {
             ),
         ],
       ),
+      floatingActionButton: FloatingActionButton.small(
+        onPressed: () {
+          // Navigate to InfoPage
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => InfoPage()),
+          );
+        },
+        child: Icon(Icons.info),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.black,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
     );
   }
 }
